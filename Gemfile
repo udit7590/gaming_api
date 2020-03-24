@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # For authentication
-gem 'devise', '~> 3.5'
+gem 'devise', '~> 4.7'
 
 # For permlink
 gem 'friendly_id', '~> 5.1'
