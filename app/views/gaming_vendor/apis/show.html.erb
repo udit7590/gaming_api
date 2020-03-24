@@ -1,0 +1,67 @@
+<%= content_for :view_header do %>
+  <h1>Your API keys</h1>
+  <p>These are the API keys that can be used with our API. Please make sure you keep them a secret.</p>
+<% end %>
+
+<%= content_for :view_body do %>
+  <!-- WINNING RULE FORM -->
+  <div class="form-horizontal">
+    
+    <div class="form-group">
+      <%= label_tag :test_api_normal_key, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-5">
+        <%= text_field_tag :test_api_normal_key, current_vendor.test_api_normal_key, readonly: true, placeholder: 'Test API unprivileged key', class: 'form-control' %>
+      </div>
+      <div class="col-sm-1">
+        <%= button_to gaming_vendor_api_path(keys: 'test_api_normal_key'), method: :patch, class: 'btn btn-warning' do %>
+          Refresh
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :test_api_privileged_key, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-5">
+        <%= text_field_tag :test_api_privileged_key, current_vendor.test_api_privileged_key, readonly: true, placeholder: 'Test API privileged key', class: 'form-control' %>
+      </div>
+      <div class="col-sm-1">
+        <%= button_to gaming_vendor_api_path(keys: 'test_api_privileged_key'), method: :patch, class: 'btn btn-warning' do %>
+          Refresh
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :live_api_normal_key, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-5">
+        <%= text_field_tag :live_api_normal_key, current_vendor.live_api_normal_key, readonly: true, placeholder: 'Live API unprivileged key', class: 'form-control' %>
+      </div>
+      <div class="col-sm-1">
+        <%= button_to gaming_vendor_api_path(keys: 'live_api_normal_key'), method: :patch, class: 'btn btn-danger' do %>
+          Refresh
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :live_api_privileged_key, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-5">
+        <%= text_field_tag :live_api_privileged_key, current_vendor.live_api_privileged_key, readonly: true, placeholder: 'Live API privileged key', class: 'form-control' %>
+      </div>
+      <div class="col-sm-1">
+        <%= button_to gaming_vendor_api_path(keys: 'live_api_privileged_key'), method: :patch, class: 'btn btn-danger' do %>
+          Refresh
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="form-group">
+    <span class='col-sm-3 control-label'></span>
+    <div class="col-sm-4">
+      <%= button_to "Refresh All", gaming_vendor_api_path(keys: 'all'), method: :patch, data: { confirm: "Are you sure you want to change all your keys?" }, class: 'btn btn-primary btn-block' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: 'gaming_vendor/shared/view_template' %>

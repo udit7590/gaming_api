@@ -1,0 +1,102 @@
+<!-- WINNING RULE FORM -->
+<%= form_for(@coupon, url: url, method: method, html: { id: 'coupon-form', class: 'form-horizontal' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :title, autofocus: true, placeholder: 'Title*', class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :code, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :code, autofocus: true, placeholder: 'Code', class: 'form-control' %>
+      <p>Leave blank in case you want it to be randomly generated</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :details, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :details, placeholder: 'Details', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :conditions, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :conditions, placeholder: 'Conditions', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :company_name, autofocus: true, placeholder: 'Company Name*', class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :company_website, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :company_website, autofocus: true, placeholder: 'Company Website', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :availability, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :availability, autofocus: true, placeholder: 'Availability (Eg. Online|India|Delhi|Worldwide|Etc)', class: 'form-control' %>
+    </div>
+  </div>  
+
+  <!-- Coupon criteria fields -->
+  <hr />
+    <div class="form-group winning-rule-criteria-field">
+      <span class='col-sm-3 control-label'></span>
+      <div class="col-sm-6">
+        <p class="alert-text"></p>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :discount_amount, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :discount_amount, placeholder: 'Discount Amount', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :discount_percentage, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :discount_percentage, placeholder: 'Discount Percentage', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :min_purchase, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :min_purchase, placeholder: 'Min Purchase Required', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :valid_from, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.date_field :valid_from, placeholder: 'Valid From', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :valid_till, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.date_field :valid_till, placeholder: 'Valid Till', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :one_time, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.check_box :one_time, placeholder: 'Valid Till', class: 'frm-control' %>
+        <p>Can this coupon be used only once per email/gamer?</p>
+      </div>
+    </div>
+  <hr />
+  <!-- /Coupon criteria fields -->
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-4">
+        <%= f.submit 'Create', class: "form-control btn btn-success" %>
+      </div>
+    </div>
+  </div>
+<% end %>

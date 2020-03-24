@@ -1,0 +1,44 @@
+
+<%= in_guest_context do %>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Gaming API', root_path, class: 'navbar-brand' %>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href="http://news.bootswatch.com">About Us</a></li>
+          <li><a href="http://news.bootswatch.com">Contact Us</a></li>
+          <li><a href="http://news.bootswatch.com">Privacy Policy</a></li>
+          <li><a href="http://news.bootswatch.com">Terms &amp; Conditions</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://builtwithbootstrap.com/" target="_blank">Documentation</a></li>
+          <li><%= link_to 'Login', new_vendor_session_path %></li>
+          <li><%= link_to 'Register', new_vendor_registration_path %></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<%= in_gaming_vendor_context do %>
+  <%= render partial: 'gaming_vendor/shared/navbar' %>
+<% end %>
+
+<% in_coupon_vendor_context do %>
+  <%= render partial: 'coupon_vendor/shared/navbar' %>
+<% end %>
+
+<% in_admin_context do %>
+  <%= render partial: 'gaming_vendor/shared/navbar' %>
+<% end %>

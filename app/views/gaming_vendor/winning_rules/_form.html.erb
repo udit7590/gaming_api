@@ -1,0 +1,114 @@
+<!-- WINNING RULE FORM -->
+<%= form_for(@winning_rule, url: url, method: method, html: { id: 'winning-rule-form', class: 'form-horizontal' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :name, autofocus: true, placeholder: 'Name*', class: 'form-control', required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, placeholder: 'Description', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :type, class: 'col-sm-3 control-label' %>
+    <div class="col-sm-6">
+      <%= f.select :type, WinningRule::CRITERIAS.map { |k,v| [v, k] }, prompt: 'Select', class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <!-- Winning rule criteria fields -->
+  <hr />
+    <div class="form-group winning-rule-criteria-field">
+      <span class='col-sm-3 control-label'></span>
+      <div class="col-sm-6">
+        <p class="alert-text">Please note different criterias require different fields to be completed</p>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :points, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :points, placeholder: 'Points Scored', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :level, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :level, placeholder: 'Level Achieved', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :given_rating, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :given_rating, placeholder: 'Min Rating Given', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :max_rating, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :max_rating, placeholder: 'Max Rating', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :times_played, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :times_played, placeholder: 'Number of times game played', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :play_duration, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :play_duration, placeholder: 'Active play duration (In seconds)', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :percentage, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :percentage, placeholder: 'Percentage of game completed', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :trophy, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :trophy, placeholder: 'Trophy Achieved', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :realm, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :realm, placeholder: 'Realm entered/unlocked', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :played_from, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.date_field :played_from, placeholder: 'Played from', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group winning-rule-criteria-field">
+      <%= f.label :played_last, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.date_field :played_last, placeholder: 'Played last', class: 'form-control' %>
+      </div>
+    </div>
+  <hr />
+  <!-- /Winning rule criteria fields -->
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-4">
+        <%= f.submit 'Create', class: "form-control btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

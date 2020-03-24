@@ -1,0 +1,17 @@
+<%= content_for :view_header do %>
+  <%= link_to new_coupon_vendor_coupon_path do %>
+    <button class="btn btn-success pull-left">Create New</button>
+  <% end %>
+  <h2>Your Winning Rules</h2>
+  <p>A winning rule is some criteria meeting which the gamers for your app are awarded coupons.</p>
+<% end %>
+
+<%= content_for :view_body do %>
+  <% unless @coupons.present? %>
+    <center><h2 class="alert-text">No coupons defined. Create one <a href="<%= new_coupon_vendor_coupon_path %>">here</a></h2></center>
+  <% else %>
+    <%= render partial: 'list', locals: { coupons: @coupons } %>
+  <% end %>
+<% end %>
+
+<%= render partial: 'gaming_vendor/shared/view_template' %>

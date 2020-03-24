@@ -1,0 +1,38 @@
+<%= content_for :view_header do %>
+  <h1>Edit Profile</h1>
+  <%= resource_error_messages!(current_vendor) %>
+<% end %>
+
+<%= content_for :view_body do %>
+  <%= form_for(current_vendor, url: coupon_vendor_profile_path, method: :patch, html: { id: 'vendor-profile-form', class: 'form-horizontal' }) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.email_field :email, placeholder: 'Email*', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :company_name, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.text_field :company_name, autofocus: true, placeholder: 'Company Name', class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :phone, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <%= f.number_field :phone, placeholder: 'Phone number', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-3 col-sm-offset-4">
+          <%= f.submit 'Update Profile', class: "form-control btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
+
+<%= render partial: 'gaming_vendor/shared/view_template' %>

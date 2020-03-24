@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @winning_rules.each do |winning_rule| %>
+      <tr>
+        <td><%= winning_rule.id %></td>
+        <td><%= winning_rule.name %>.</td>
+        <td><%= WinningRule::CRITERIAS[winning_rule.type.to_sym] %></td>
+        <td><%= winning_rule.active? ? 'Active' : 'Inactive' %></td>
+        <td><%= winning_rule.created_at.to_s(:long) %></td>
+        <td>
+          <%= link_to gaming_vendor_winning_rule_path(winning_rule) do %>
+            <button class="btn btn-primary">Show</button>
+          <% end %>
+          <%= link_to edit_gaming_vendor_winning_rule_path(winning_rule) do %>
+            <button class="btn btn-warning">Edit</button>
+          <% end %>
+          <%= link_to gaming_vendor_winning_rule_path(winning_rule), method: :destroy, data: { confirm: 'Are you sure?' } do %>
+            <button class="btn btn-danger">Delete</button>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

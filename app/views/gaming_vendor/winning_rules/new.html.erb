@@ -1,0 +1,11 @@
+<%= content_for :view_header do %>
+  <h2>Define new winning rule</h2>
+   <p>A winning rule is some criteria meeting which the gamers for your app are awarded coupons.</p>
+   <%= resource_error_messages!(@winning_rule) %>
+<% end %>
+
+<%= content_for :view_body do %>
+  <%= render partial: 'form', locals: { url: gaming_vendor_winning_rules_path, method: :post } %>
+<% end %>
+
+<%= render partial: 'gaming_vendor/shared/view_template' %>

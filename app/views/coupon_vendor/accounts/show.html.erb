@@ -1,0 +1,61 @@
+<%= content_for :view_header do %>
+  <h1>Your Account Info</h1>
+<% end %>
+
+<%= content_for :view_body do %>
+  <div class="form-horizontal">
+    
+    <div class="form-group">
+      <%= label_tag :email, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.email %></p>
+      </div>
+    </div>
+
+    <% if current_vendor.unconfirmed_email.present? %>
+      <div class="form-group">
+        <%= label_tag :unconfirmed_email, nil, class: 'col-sm-3 control-label alert-text' %>
+        <div class="col-sm-6">
+          <p class="form-replacement-text alert-text"><%= current_vendor.unconfirmed_email %> (You need to confirm this email first to reflect this into our system. Check your email for the instructions)</p>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= label_tag :status, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.status %></p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :last_login, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.last_sign_in_at.to_s(:long) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :last_updated, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.updated_at.to_s(:long) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :account_type, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.humanized_type %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :created_on, nil, class: 'col-sm-3 control-label' %>
+      <div class="col-sm-6">
+        <p class="form-replacement-text"><%= current_vendor.created_at.to_s(:long) %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: 'gaming_vendor/shared/view_template' %>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-login">
+      <div class="panel-heading">
+        <h2>Confirmation Instructions</h2>
+        <p>Please check your mail and click the link provided in mail to confirm your account. If you did not receive confirmation instructions, you can provide your email and we'll send them again.</p>
+        <%= devise_error_messages! %>
+        <hr>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <!-- PASSWORD FORM -->
+            <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control', placeholder: 'Email' %> 
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.submit "Resend confirmation instructions", class: 'form-control btn btn-block btn-warning' %>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="text-center">
+                      <%= render "vendors/shared/links" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

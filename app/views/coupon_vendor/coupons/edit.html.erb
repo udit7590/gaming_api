@@ -1,0 +1,11 @@
+<%= content_for :view_header do %>
+  <h2>Edit coupon</h2>
+   <p>Coupons will be used by our game develpers to distribute to their gamers on gaining some achievements.<br />Please provide the information for the coupon code.</p>
+   <%= resource_error_messages!(@coupon) %>
+<% end %>
+
+<%= content_for :view_body do %>
+  <%= render partial: 'form', locals: { url: coupon_vendor_coupon_path(@coupon), method: :patch } %>
+<% end %>
+
+<%= render partial: 'coupon_vendor/shared/view_template' %>

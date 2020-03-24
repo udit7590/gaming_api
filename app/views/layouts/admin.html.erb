@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gaming API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <%= content_for :meta_tags %>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag    'admin', media: 'all' %>
+    <%= content_for :stylesheets %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render partial: 'themes/admin/navbar' %>
+
+    <div class="container main-content">
+      <%= yield %>
+
+      <%= render partial: 'themes/admin/footer' %>
+    </div>
+
+    <%= javascript_include_tag 'admin' %>
+    <%= content_for :javascripts %>
+  </body>
+</html>
